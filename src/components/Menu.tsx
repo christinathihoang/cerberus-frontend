@@ -1,12 +1,12 @@
 import React from 'react';
 import 'bulma/css/bulma.css'
+import crest from '../assets/kappa-phi-lambda-crest.png';
 
 function Menu() {
   return (
     <aside className="menu">
-      <p className="menu-label">
-        General
-  </p>
+      <img src={crest}/>;
+      <p className="menu-label">General</p>
       <ul className="menu-list">
         <li><a>Dashboard</a></li>
         <li><a>Customers</a></li>
@@ -31,11 +31,7 @@ function Menu() {
       <p className="menu-label">
         Transactions
   </p>
-      <ul className="menu-list">
-        <li><a>Payments</a></li>
-        <li><a>Transfers</a></li>
-        <li><a>Balance</a></li>
-      </ul>
+
     </aside>
   )
 }
