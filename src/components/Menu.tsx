@@ -1,18 +1,17 @@
 import React from "react";
 import "bulma/css/bulma.css";
 import crest from "../assets/kappa-phi-lambda-crest.png";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Menu() {
   return (
-    <Router>
       <div className="box">
         <aside className="menu">
           <img src={crest} />
           <p className="menu-label">General</p>
           <ul className="menu-list">
             <li>
-              <a>Dashboard</a>
+            <Link to="/dashboard">Dashboard</Link>
             </li>
           </ul>
           <p className="menu-label">Information</p>
@@ -32,7 +31,6 @@ function Menu() {
           </ul>
         </aside>
       </div>
-    </Router>
   );
 }
 

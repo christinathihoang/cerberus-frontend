@@ -7,6 +7,7 @@ import NicknameForm from "./routes/NicknameForm";
 import Littles from "./routes/Littles";
 import Profile from "./routes/Profile";
 import Footer from "./components/Footer";
+import Dashboard from "./routes/Dashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           </div>
           <div className="column">
             <Switch>
+              <Route path="/dashboard" component={Dashboard} />
               <Route path="/nickname-form" component={NicknameForm} />
               <Route path="/littles" component={Littles} />
               <Route path="/profile" component={Profile} />
