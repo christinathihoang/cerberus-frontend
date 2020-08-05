@@ -1,3 +1,19 @@
-body, html, .columns , .box {
-  height: 100vh;
+body, html, .container {
+  min-height: 100vh;
+  overflow: auto;
+  background-color: #b92b0c;
+
+}
+
+.container {
+  padding-top: 5rem;
+}
+
+
+.box {
+  min-height: 100%;
+}
+
+Footer {
+  padding: 2rem 1rem 2rem !important;
 }
