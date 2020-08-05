@@ -1,40 +1,39 @@
-import React from 'react';
-import 'bulma/css/bulma.css'
-import crest from '../assets/kappa-phi-lambda-crest.png';
+import React from "react";
+import "bulma/css/bulma.css";
+import crest from "../assets/kappa-phi-lambda-crest.png";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 function Menu() {
   return (
-    <aside className="menu">
-      <img src={crest}/>;
-      <p className="menu-label">General</p>
-      <ul className="menu-list">
-        <li><a>Dashboard</a></li>
-        <li><a>Customers</a></li>
-      </ul>
-      <p className="menu-label">
-        Administration
-  </p>
-      <ul className="menu-list">
-        <li><a>Team Settings</a></li>
-        <li>
-          <a className="is-active">Manage Your Team</a>
-          <ul>
-            <li><a>Members</a></li>
-            <li><a>Plugins</a></li>
-            <li><a>Add a member</a></li>
+    <Router>
+      <div className="box">
+        <aside className="menu">
+          <img src={crest} />
+          <p className="menu-label">General</p>
+          <ul className="menu-list">
+            <li>
+              <a>Dashboard</a>
+            </li>
           </ul>
-        </li>
-        <li><a>Invitations</a></li>
-        <li><a>Cloud Storage Environment Settings</a></li>
-        <li><a>Authentication</a></li>
-      </ul>
-      <p className="menu-label">
-        Transactions
-  </p>
-
-    </aside>
-  )
+          <p className="menu-label">Information</p>
+          <ul className="menu-list">
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/littles">Littles</Link>
+            </li>
+          </ul>
+          <p className="menu-label">Forms</p>
+          <ul className="menu-list">
+            <li>
+              <Link to="/nickname-form">Nickname Submission</Link>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </Router>
+  );
 }
 
 export default Menu;
-
