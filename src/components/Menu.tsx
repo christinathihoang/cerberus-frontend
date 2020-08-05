@@ -10,8 +10,11 @@ function Menu() {
           <img src={crest} />
           <p className="menu-label">General</p>
           <ul className="menu-list">
-            <li>
+          <li>
             <Link to="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+            <Link to="/directory">Directory</Link>
             </li>
           </ul>
           <p className="menu-label">Information</p>
@@ -27,6 +30,13 @@ function Menu() {
           <ul className="menu-list">
             <li>
               <Link to="/nickname-form">Nickname Submission</Link>
+            </li>
+          </ul>
+
+          <p className="menu-label">Additional</p>
+          <ul className="menu-list">
+            <li>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </aside>
