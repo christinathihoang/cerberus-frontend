@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "bulma/css/bulma.css";
+import AddLittleModal from "../components/AddLittleModal";
 
 function Littles() {
+  const [littles, setLittles] = useState<any[]>([
+    {
+      first_name: "Chloe",
+      last_name: "Miemban",
+      nickname: "Aralune",
+      tree: "Animation",
+      chapter: "Alpha Gamma",
+    },
+  ]);
+  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <div className="box">
       <article className="message">
@@ -11,28 +22,37 @@ function Littles() {
         </div>
       </article>
 
-      <div className="card">
-        <header className="card-header">
-          <p className="card-header-title">Chloe Miemban</p>
-        </header>
-        <div className="card-content">
-          <div className="content">
-            <p>Nickname: *Aralune*</p>
-            <p>Chapter: Alpha Gamma</p>
-            <p>Semester: Fall 2018</p>
-            <p>Status: Alum</p>
-          </div>
-        </div>
-        <footer className="card-footer"></footer>
-      </div>
+      <table className="table is-bordered is-narrow is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Nickname</th>
+            <th>Sister</th>
+            <th>Chapter</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {littles.map((little) => [
+            <tr>
+              <td>{little.nickname}</td>
+              <td>
+                {little.first_name} {little.last_name}
+              </td>
+              <td>{little.chapter}</td>
+            </tr>,
+          ])}
+        </tbody>
+      </table>
 
       <section className="section">
-
-      <div className="buttons has-addons is-right">
-        <button className="button">Add Little</button>
-      </div>
+        <div className="buttons has-addons is-right">
+          <button className="button" onClick={() => setShowModal(true)}>
+            Add Little
+          </button>
+        </div>
       </section>
 
+      <AddLittleModal showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }

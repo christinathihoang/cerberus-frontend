@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "bulma/css/bulma.css";
-import Fuse from 'fuse.js'
+import Fuse from "fuse.js";
 
 function Directory() {
   const [sisters, setSisters] = useState<any[]>([]);
   const [search, setSearch] = useState<string>("");
-  const updateSearch = (e: { target: { value: React.SetStateAction<string>; }; }) => setSearch(e.target.value);
+  const updateSearch = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => setSearch(e.target.value);
   const [searchResults, setSearchResults] = useState<any[]>([]);
-  
+
   async function getSisters() {
     const data = await fetch(`http://localhost:8080/sisters`, {
       headers: {
@@ -22,30 +24,27 @@ function Directory() {
   function searchSisters() {
     const options = {
       includeScore: true,
-      keys: ['first_name', 'last_name', 'nickname', 'tree']
-    }
-    
-    const fuse = new Fuse(sisters, options)
-    
-    const results = fuse.search(search)
-    const resultArray = results.map(result => result.item)
-    console.log(resultArray)
-    setSearchResults(resultArray)
-  }
+      keys: ["first_name", "last_name", "nickname", "tree"],
+    };
 
-  useEffect(() => {
-    searchSisters();
-  }, [search]);
+    const fuse = new Fuse(sisters, options);
+
+    const results = fuse.search(search);
+    const resultArray = results.map((result) => result.item);
+    setSearchResults(resultArray);
+  }
 
   useEffect(() => {
     getSisters();
   }, []);
 
   useEffect(() => {
+    searchSisters();
+  }, [search]);
+
+  useEffect(() => {
     setSearchResults(sisters);
   }, [sisters]);
-
-
 
   return (
     <div className="box">
