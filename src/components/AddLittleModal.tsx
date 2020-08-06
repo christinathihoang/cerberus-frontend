@@ -20,7 +20,33 @@ function AddLittleModal({ showModal, setShowModal }: Props) {
             onClick={() => setShowModal(false)}
           ></button>
         </header>
-        <section className="modal-card-body">why is there no padding</section>
+        <section className="modal-card-body">
+          <div className="field">
+            <label className="label">First name</label>
+            <div className="control">
+              <input className="input" type="text" placeholder="Text input" />
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Last name</label>
+            <div className="control">
+              <input className="input" type="text" placeholder="Text input" />
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Semester</label>
+            <div className="control">
+              <div className="select">
+                <select>
+                  <option>Select dropdown</option>
+                  <option>With options</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
         <footer className="modal-card-foot">
           <button className="button is-success">Add little</button>
           <button className="button" onClick={() => setShowModal(false)}>
