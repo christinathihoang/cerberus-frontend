@@ -10,11 +10,13 @@ import Contact from "./routes/Contact";
 import Footer from "./components/Footer";
 import Dashboard from "./routes/Dashboard";
 import Directory from "./routes/Directory";
+import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
-      <div className="container is-fluid">
+      <div className="container is-fluid mt-6">
+        <Header/>
         <div className="columns">
           <div className="column is-one-fifth">
             <Menu />
