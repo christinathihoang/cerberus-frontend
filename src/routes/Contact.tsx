@@ -3,7 +3,7 @@ import "bulma/css/bulma.css";
 
 function Contact() {
   return (
-    <div className="box">
+    <div className="box has-background-light">
       <div className="tabs">
         <ul>
           <li className="is-active">

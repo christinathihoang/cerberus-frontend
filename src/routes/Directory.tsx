@@ -47,7 +47,7 @@ function Directory() {
   }, [sisters]);
 
   return (
-    <div className="box">
+    <div className="box has-background-light	">
       <div className="field is-horizontal">
         <div className="field-label is-normal">
           <label className="label">Search</label>

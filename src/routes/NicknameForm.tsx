@@ -3,7 +3,7 @@ import "bulma/css/bulma.css";
 
 function NicknameForm() {
   return (
-    <div className="box">
+    <div className="box has-background-light	">
       <article className="message">
         <div className="message-body">
           To apply for a nickname, you must have updated the{" "}

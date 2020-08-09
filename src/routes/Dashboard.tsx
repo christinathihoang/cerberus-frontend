@@ -1,32 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "bulma/css/bulma.css";
+import ApplicationCard from "../components/ApplicationCard";
 
 function Dashboard() {
+  const [applications, setApplications] = useState<any[]>([]);
+
+  async function getApplications() {
+    const data = await fetch(`http://localhost:8080/applications`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const jsonData = await data.json();
+    setApplications(jsonData);
+  }
+
+  useEffect(() => {
+    getApplications();
+  }, [])
+
   return (
     <div className="box">
-      <table className="table is-bordered is-narrow is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th>Nickname</th>
-            <th>Date Submitted</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Ventura</td>
-            <td>10/10/2018</td>
-            <td>Not Approved</td>
-          </tr>
-
-          <tr>
-            <td>Shepherdess</td>
-            <td>10/10/2019</td>
-            <td>Approved</td>
-          </tr>
-        </tbody>
-      </table>
+      {applications.map((application: any) => (
+        <ApplicationCard application={application}/>
+      ))}
     </div>
   );
 }

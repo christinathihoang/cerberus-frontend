@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Menu() {
   return (
-      <div className="box">
+      <div className="box has-background-light">
         <aside className="menu">
           <img src={crest} />
           <p className="menu-label">General</p>

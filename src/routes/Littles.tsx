@@ -14,7 +14,7 @@ function Littles() {
   ]);
   const [showModal, setShowModal] = useState<boolean>(false);
   return (
-    <div className="box">
+    <div className="box has-background-light">
       <article className="message">
         <div className="message-body">
           Before applying for a nickname, please make sure that all of the
