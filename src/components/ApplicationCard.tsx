@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bulma/css/bulma.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import styled from "styled-components";
+import ApplicationModal from "./ApplicationModal";
 
 interface Props {
   application: any;
@@ -25,6 +26,7 @@ const DeleteIcon = styled.i`
   }
 `;
 
+
 function ApplicationCard({ application }: Props) {
   const {
     little: { first_name, last_name },
@@ -35,6 +37,14 @@ function ApplicationCard({ application }: Props) {
   // const applicationStatus = application.status ? "APPROVED" : "NOT APPROVED";
   const cardColor =
     status === "APPROVED" && accepted ? "has-text-danger-dark" : null;
+
+    const [showModal, setShowModal] = useState<boolean>(false);
+    const [modalType, setModalType] = useState<string>("");
+
+    function openModal(modalType: string) {
+      setModalType(modalType);
+      setShowModal(true);
+    };
 
   return (
     <div className="card mb-3">
@@ -52,15 +62,16 @@ function ApplicationCard({ application }: Props) {
           </div>
 
           <div className="column has-text-right">
-            <a>
+            <a onClick={() => openModal("delete")}>
               <DeleteIcon className="fas fa-times-circle fa-2x"></DeleteIcon>
             </a>
-            <a>
+            <a onClick={() => openModal("accept")}>
               <AcceptIcon className="fas fa-check-circle fa-2x"></AcceptIcon>
             </a>
           </div>
         </div>
       </div>
+      <ApplicationModal modalType={modalType} showModal={showModal} setShowModal={setShowModal}></ApplicationModal>
     </div>
   );
 }
